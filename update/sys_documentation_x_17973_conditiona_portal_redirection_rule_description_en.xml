@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update>
+    <sys_documentation element="description" label="Description" language="en" table="x_17973_conditiona_portal_redirection_rule">
+        <sys_documentation action="INSERT_OR_UPDATE">
+            <element>description</element>
+            <help/>
+            <hint/>
+            <label>Description</label>
+            <language>en</language>
+            <name>x_17973_conditiona_portal_redirection_rule</name>
+            <plural>Descriptions</plural>
+            <sys_class_name>sys_documentation</sys_class_name>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2018-06-19 01:27:28</sys_created_on>
+            <sys_customer_update>false</sys_customer_update>
+            <sys_id>ebe13a954ff6130069b8c3818110c771</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_name>Description</sys_name>
+            <sys_package display_value="Conditional Portal Redirection" source="x_17973_conditiona">a8bee2414f32130069b8c3818110c752</sys_package>
+            <sys_policy/>
+            <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+            <sys_scope display_value="Conditional Portal Redirection">a8bee2414f32130069b8c3818110c752</sys_scope>
+            <sys_update_name>sys_documentation_x_17973_conditiona_portal_redirection_rule_description_en</sys_update_name>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2018-06-19 01:27:28</sys_updated_on>
+            <url/>
+            <url_target/>
+        </sys_documentation>
+    </sys_documentation>
+</record_update>

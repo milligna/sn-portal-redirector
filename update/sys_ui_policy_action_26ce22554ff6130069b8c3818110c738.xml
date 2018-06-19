@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sys_ui_policy_action">
+    <sys_ui_policy_action action="INSERT_OR_UPDATE">
+        <disabled>ignore</disabled>
+        <field>portal_mapping</field>
+        <mandatory>ignore</mandatory>
+        <sys_class_name>sys_ui_policy_action</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2018-06-19 01:13:56</sys_created_on>
+        <sys_customer_update>true</sys_customer_update>
+        <sys_id>26ce22554ff6130069b8c3818110c738</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>portal_mapping</sys_name>
+        <sys_package display_value="Conditional Portal Redirection" source="x_17973_conditiona">a8bee2414f32130069b8c3818110c752</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Conditional Portal Redirection">a8bee2414f32130069b8c3818110c752</sys_scope>
+        <sys_update_name>sys_ui_policy_action_26ce22554ff6130069b8c3818110c738</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2018-06-19 01:13:56</sys_updated_on>
+        <table>x_17973_conditiona_portal_redirection_rule</table>
+        <ui_policy display_value="[PRR] When type is Portal, show Portal field">1caeae154ff6130069b8c3818110c7d2</ui_policy>
+        <visible>true</visible>
+    </sys_ui_policy_action>
+</record_update>

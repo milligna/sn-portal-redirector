@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update>
+    <sys_choice action="INSERT_OR_UPDATE" field="redirect_type" table="x_17973_conditiona_portal_redirection_rule" version="3">
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>redirect_type</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Portal</label>
+            <language>en</language>
+            <name>x_17973_conditiona_portal_redirection_rule</name>
+            <sequence>1</sequence>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2018-06-19 00:56:21</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>7dca22d14ff6130069b8c3818110c766</sys_id>
+            <sys_mod_count>1</sys_mod_count>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2018-06-19 00:56:41</sys_updated_on>
+            <value>portal</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>redirect_type</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Platform UI</label>
+            <language>en</language>
+            <name>x_17973_conditiona_portal_redirection_rule</name>
+            <sequence>2</sequence>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2018-06-19 00:56:33</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>24daee194fb6130069b8c3818110c7a2</sys_id>
+            <sys_mod_count>1</sys_mod_count>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2018-06-19 00:56:44</sys_updated_on>
+            <value>platform_ui</value>
+        </sys_choice>
+        <sys_choice_set action="INSERT_OR_UPDATE">
+            <element>redirect_type</element>
+            <name>x_17973_conditiona_portal_redirection_rule</name>
+            <sys_class_name>sys_choice_set</sys_class_name>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2018-06-19 00:56:21</sys_created_on>
+            <sys_customer_update>false</sys_customer_update>
+            <sys_id>3fca2e914ff6130069b8c3818110c70c</sys_id>
+            <sys_mod_count>4</sys_mod_count>
+            <sys_name>redirect_type</sys_name>
+            <sys_package display_value="Conditional Portal Redirection" source="x_17973_conditiona">a8bee2414f32130069b8c3818110c752</sys_package>
+            <sys_policy/>
+            <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+            <sys_scope display_value="Conditional Portal Redirection">a8bee2414f32130069b8c3818110c752</sys_scope>
+            <sys_update_name>sys_choice_x_17973_conditiona_portal_redirection_rule_redirect_type</sys_update_name>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2018-06-19 00:56:44</sys_updated_on>
+        </sys_choice_set>
+    </sys_choice>
+</record_update>

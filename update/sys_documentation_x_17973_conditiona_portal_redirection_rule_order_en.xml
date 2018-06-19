@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update>
+    <sys_documentation element="order" label="Order" language="en" table="x_17973_conditiona_portal_redirection_rule">
+        <sys_documentation action="INSERT_OR_UPDATE">
+            <element>order</element>
+            <help/>
+            <hint/>
+            <label>Order</label>
+            <language>en</language>
+            <name>x_17973_conditiona_portal_redirection_rule</name>
+            <plural>Orders</plural>
+            <sys_class_name>sys_documentation</sys_class_name>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2018-06-18 06:38:56</sys_created_on>
+            <sys_customer_update>true</sys_customer_update>
+            <sys_id>90af2e054f32130069b8c3818110c77e</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_name>Order</sys_name>
+            <sys_package display_value="Conditional Portal Redirection" source="x_17973_conditiona">a8bee2414f32130069b8c3818110c752</sys_package>
+            <sys_policy/>
+            <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+            <sys_scope display_value="Conditional Portal Redirection">a8bee2414f32130069b8c3818110c752</sys_scope>
+            <sys_update_name>sys_documentation_x_17973_conditiona_portal_redirection_rule_order_en</sys_update_name>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2018-06-18 06:38:56</sys_updated_on>
+            <url/>
+            <url_target/>
+        </sys_documentation>
+    </sys_documentation>
+</record_update>

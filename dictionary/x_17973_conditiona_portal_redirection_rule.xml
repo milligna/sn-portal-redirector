@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<database>
+    <element label="Portal Redirection Rule" max_length="40" name="x_17973_conditiona_portal_redirection_rule" type="collection">
+        <element default="true" label="Active" max_length="40" name="active" type="boolean"/>
+        <element label="Description" max_length="400" name="description" type="string"/>
+        <element label="Rule Name" max_length="40" name="name" type="string"/>
+        <element default="100" label="Order" max_length="3" name="order" type="integer"/>
+        <element label="Portal Mapping" max_length="32" name="portal_mapping" reference="sp_portal" type="reference"/>
+        <element choice="1" default="portal" label="Redirect Type (Portal or Platform UI)" mandatory="true" max_length="40" name="redirect_type" type="choice">
+            <choice>
+                <element label="Portal" sequence="1" value="portal"/>
+                <element label="Platform UI" sequence="2" value="platform_ui"/>
+            </choice>
+        </element>
+        <element attributes="condition_builder=v2, show_condition_count=true" dependent="rule_type" dependent_on_field="rule_type" label="Rule Conditions" max_length="4000" name="rule_conditions" type="conditions" use_dependent_field="true"/>
+        <element choice="1" label="Rule Type" mandatory="true" max_length="40" name="rule_type" type="choice">
+            <choice>
+                <element label="User Record Fields" value="sys_user"/>
+                <element label="User's Group Membership" value="sys_user_grmember"/>
+                <element label="User's Role Membership" value="sys_user_has_role"/>
+            </choice>
+        </element>
+        <element dependent="rule_type" dependent_on_field="rule_type" label="User Field Name (select the User field for this rule type)" mandatory="true" max_length="80" name="user_field_name" type="field_name" use_dependent_field="true"/>
+        <index name="index">
+            <element name="portal_mapping"/>
+        </index>
+    </element>
+</database>

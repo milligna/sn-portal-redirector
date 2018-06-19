@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sys_security_acl_role">
+    <sys_security_acl_role action="INSERT_OR_UPDATE">
+        <sys_class_name>sys_security_acl_role</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2018-06-18 06:38:56</sys_created_on>
+        <sys_customer_update>true</sys_customer_update>
+        <sys_id>d0af2e054f32130069b8c3818110c762</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>x_17973_conditiona_portal_redirection_rule.x_17973_conditiona.portal_redirection_rule_user</sys_name>
+        <sys_package display_value="Conditional Portal Redirection" source="x_17973_conditiona">a8bee2414f32130069b8c3818110c752</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Conditional Portal Redirection">a8bee2414f32130069b8c3818110c752</sys_scope>
+        <sys_security_acl display_value="x_17973_conditiona_portal_redirection_rule">1caf2e054f32130069b8c3818110c751</sys_security_acl>
+        <sys_update_name>sys_security_acl_role_d0af2e054f32130069b8c3818110c762</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2018-06-18 06:38:56</sys_updated_on>
+        <sys_user_role display_value="x_17973_conditiona.portal_redirection_rule_user" name="x_17973_conditiona.portal_redirection_rule_user">739fea014f32130069b8c3818110c71c</sys_user_role>
+        <transaction_id/>
+    </sys_security_acl_role>
+</record_update>
