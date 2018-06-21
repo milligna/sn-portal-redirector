@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sys_properties">
+    <sys_properties action="INSERT_OR_UPDATE">
+        <choices/>
+        <description>This is a System Property intended to define a "default portal" for the purposes of setting a theme and login page for an unauthenticated user in a custom version of the SPEntryPage script.  &#13;
+</description>
+        <ignore_cache>false</ignore_cache>
+        <is_private>false</is_private>
+        <name>x_17973_conditiona.default_login_portal</name>
+        <read_roles/>
+        <suffix>default_login_portal</suffix>
+        <sys_class_name>sys_properties</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2018-06-21 01:46:00</sys_created_on>
+        <sys_customer_update>true</sys_customer_update>
+        <sys_id>d0c6c18a4f72130069b8c3818110c70a</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>x_17973_conditiona.default_login_portal</sys_name>
+        <sys_package display_value="Conditional Portal Redirection" source="x_17973_conditiona">a8bee2414f32130069b8c3818110c752</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Conditional Portal Redirection">a8bee2414f32130069b8c3818110c752</sys_scope>
+        <sys_update_name>sys_properties_d0c6c18a4f72130069b8c3818110c70a</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2018-06-21 01:46:00</sys_updated_on>
+        <type>string</type>
+        <value>/sp/</value>
+        <write_roles/>
+    </sys_properties>
+    <sys_translated_text action="delete_multiple" query="documentkey=d0c6c18a4f72130069b8c3818110c70a"/>
+</record_update>

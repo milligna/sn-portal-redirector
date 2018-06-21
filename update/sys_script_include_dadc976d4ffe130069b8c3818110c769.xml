@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sys_script_include">
+    <sys_script_include action="INSERT_OR_UPDATE">
+        <access>public</access>
+        <active>true</active>
+        <api_name>x_17973_conditiona.PRRPortalRuleUtils</api_name>
+        <client_callable>true</client_callable>
+        <description>This is a Utility for the Conditional Portal Redirect Application to query the Portal Redirection Rule table.  It can be used for any given logged-in user to identify which portal a user should be redirected to.  This can be incorporated into a custom SPEntryPage script or called from any other redirect methods required.&#13;
+&#13;
+Call using the following syntax:&#13;
+&#13;
+var portalRules = new x_17973_conditiona.PRRPortalRuleUtils();&#13;
+&#13;
+portalRules.getRedirectRule();                        //-- For the object&#13;
+portalRules.getRedirectRule().name;           //-- For the rule Name&#13;
+portalRules.ggetRedirectType();                     //-- For the rule's redirect type (platform_ui or portal)&#13;
+portalRules.getRedirectPortalSuffix();         //-- For the Portal suffix&#13;
+portalRules.getRedirectPortalObject();       //-- For the Portal Object</description>
+        <name>PRRPortalRuleUtils</name>
+        <script><![CDATA[var PRRPortalRuleUtils = Class.create();
+PRRPortalRuleUtils.prototype = Object.extendsObject(global.AbstractAjaxProcessor, {
+
+	initialize: function() {
+	},
+	
+// ***********************
+// **
+// ** The "getRedirectPortal" function is used to query the current session user
+// ** then use that user ID to iterate through all the "Portal Redirection Rule" records
+// ** until it finds the first match.   It will then return the related Portal SysID.
+// **
+// ***********************
+	
+	
+	getRedirectRule: function() {
+		gs.debug('[PRR] Portal Redirect Rule Function starts');
+		
+		// Set the current Session User ID and retrieve the related User Record:
+		var sessionUser = gs.getUserID();
+		var userRec = new GlideRecord("sys_user");
+		if (userRec.get(sessionUser));	
+		
+		// Set Rulecount for Logging and Matched Rule flag to stop the loop:
+		var ruleCount = 0;
+		var matchedRule = 'false';
+
+		// Query the Portal Redirection Rule Table in ascending Execution Order:
+		var redirectRule = new GlideRecord("x_17973_conditiona_portal_redirection_rule");
+		redirectRule.orderBy('order');
+		redirectRule.addQuery('active',true);
+		redirectRule.query();
+  
+		while (redirectRule.next() && matchedRule =='false'){
+			ruleCount ++;
+  
+			// Log the Rule that we are Processing, the Session User and the Query String
+			gs.debug('[PRR] ######################## RULE '+ruleCount+' STARTS########################');
+			gs.debug('[PRR] [Rule:'+ruleCount+'] [User: '+userRec.name+'] RULE: '+redirectRule.name);
+			gs.debug('[PRR] [Rule:'+ruleCount+'] [User: '+userRec.name+'] QUERY: '+redirectRule.user_field_name+"="+sessionUser+"^"+redirectRule.rule_conditions);
+   
+  
+			// Once we have returned the next Rule in the loop, construct a query of the table matching the "Rule Type" using the User Field Name and Rule Conditions: 
+			var queryTable = new GlideRecord(redirectRule.rule_type);
+			queryTable.addQuery(redirectRule.user_field_name+"="+sessionUser+"^"+redirectRule.rule_conditions);
+			queryTable.query();
+			if (queryTable.next()){
+				
+				// If the current users matches the query, then set the "Matched Rule" flag and break the loop: 
+				gs.debug('[PRR] [Rule:'+ruleCount+'] [User: '+userRec.name+'] ### QUERY MATCH ###: '+queryTable.getDisplayValue());
+				matchedRule = redirectRule;
+				gs.debug('[PRR] [Rule:'+ruleCount+'] [User: '+userRec.name+'] ### MATCHED RULE ### : "'+matchedRule.name+'" - on table: '+queryTable.getTableName());
+				break;
+			}
+  
+			// if we find no match on the query, then we go back into the loop
+			if(matchedRule == 'false'){
+				gs.debug('[PRR] [Rule:'+ruleCount+'] [User: '+userRec.name+'] NO MATCH FOUND FOR RULE');
+			}
+		}
+
+		// Once we're out of the loop, Log the final Matched Rule and Selected Portal for the User:
+		gs.debug('[PRR] [Rule:'+ruleCount+'] [User: '+userRec.name+'] ### RETURNED RULE ### : "'+matchedRule.getDisplayValue() + '" - FOUND PORTAL: '+matchedRule.portal_mapping.getDisplayValue() + ' Sys_ID: '+matchedRule.portal_mapping);
+  
+		// Return the Matched Rule
+		return matchedRule;
+	},
+	
+	
+// ***********************
+// **
+// ** The "getPortalSuffix" function is used to return just the 
+// ** suffix of the Redirect Portal returned by the getRedirectPortal function.
+// **
+// ***********************
+	
+	getRedirectPortalSuffix: function() {
+		var redirectPortal = this.getRedirectPortalObject();
+		return redirectPortal.url_suffix.getDisplayValue();
+	},
+	
+// ***********************
+// **
+// ** The "getRedirectPortalObject" function is used to return  the 
+// ** GlideRecord of the Redirect Portal returned by the getRedirectPortal function.
+// **
+// ***********************
+	
+	getRedirectPortalObject: function() {
+		var redirectRule = this.getRedirectRule();
+		return redirectRule.portal_mapping;
+	},
+	
+	// ***********************
+// **
+// ** The "getRedirectType" function is used to return the 
+// ** Redirect Type of the Redirect Rule that has matched for the user
+// ** this could return either "portal" or "platform ui"
+// **
+// ***********************
+	
+	getRedirectType: function() {
+		var redirectRule = this.getRedirectRule();
+		return redirectRule.redirect_type;
+	},
+
+	
+	type: 'PRRPortalRuleUtils'
+});]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2018-06-19 23:25:55</sys_created_on>
+        <sys_customer_update>true</sys_customer_update>
+        <sys_id>dadc976d4ffe130069b8c3818110c769</sys_id>
+        <sys_mod_count>19</sys_mod_count>
+        <sys_name>PRRPortalRuleUtils</sys_name>
+        <sys_package display_value="Conditional Portal Redirection" source="x_17973_conditiona">a8bee2414f32130069b8c3818110c752</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Conditional Portal Redirection">a8bee2414f32130069b8c3818110c752</sys_scope>
+        <sys_update_name>sys_script_include_dadc976d4ffe130069b8c3818110c769</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2018-06-21 01:34:25</sys_updated_on>
+    </sys_script_include>
+</record_update>
