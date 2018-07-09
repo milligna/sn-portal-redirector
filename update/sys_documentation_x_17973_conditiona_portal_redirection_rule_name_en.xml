@@ -12,7 +12,7 @@
             <sys_class_name>sys_documentation</sys_class_name>
             <sys_created_by>admin</sys_created_by>
             <sys_created_on>2018-06-18 06:38:56</sys_created_on>
-            <sys_customer_update>true</sys_customer_update>
+            <sys_customer_update>false</sys_customer_update>
             <sys_id>58af2e054f32130069b8c3818110c77c</sys_id>
             <sys_mod_count>1</sys_mod_count>
             <sys_name>Rule Name</sys_name>

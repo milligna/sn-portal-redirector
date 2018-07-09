@@ -1,96 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <record_update>
     <sys_ui_list parent="sys_db_object" relationship="4344f6f5bf1320001875647fcf0739ad" sys_domain="global" table="sys_dictionary" version="2" view="">
-        <sys_ui_list_element action="INSERT_OR_UPDATE">
-            <average_value>false</average_value>
-            <element>column_label</element>
-            <list_id display_value="sys_dictionary" element="NULL" name="sys_dictionary" parent="sys_db_object" relationship="4344f6f5bf1320001875647fcf0739ad" sys_domain="global" view="Default view">8eb1fcd8ef423000a61d5a3615c0fb55</list_id>
-            <max_value>false</max_value>
-            <min_value>false</min_value>
-            <position>0</position>
-            <sum>false</sum>
-            <sys_created_by>admin</sys_created_by>
-            <sys_created_on>2012-11-27 20:54:45</sys_created_on>
-            <sys_id>ceb1fcd8ef423000a61d5a3615c0fb56</sys_id>
-            <sys_mod_count>0</sys_mod_count>
-            <sys_updated_by>admin</sys_updated_by>
-            <sys_updated_on>2012-11-27 20:54:45</sys_updated_on>
-        </sys_ui_list_element>
-        <sys_ui_list_element action="INSERT_OR_UPDATE">
-            <average_value>false</average_value>
-            <element>internal_type</element>
-            <list_id display_value="sys_dictionary" element="NULL" name="sys_dictionary" parent="sys_db_object" relationship="4344f6f5bf1320001875647fcf0739ad" sys_domain="global" view="Default view">8eb1fcd8ef423000a61d5a3615c0fb55</list_id>
-            <max_value>false</max_value>
-            <min_value>false</min_value>
-            <position>1</position>
-            <sum>false</sum>
-            <sys_created_by>admin</sys_created_by>
-            <sys_created_on>2012-11-27 20:54:45</sys_created_on>
-            <sys_id>86b1fcd8ef423000a61d5a3615c0fb57</sys_id>
-            <sys_mod_count>0</sys_mod_count>
-            <sys_updated_by>admin</sys_updated_by>
-            <sys_updated_on>2012-11-27 20:54:45</sys_updated_on>
-        </sys_ui_list_element>
-        <sys_ui_list_element action="INSERT_OR_UPDATE">
-            <average_value>false</average_value>
-            <element>reference</element>
-            <list_id display_value="sys_dictionary" element="NULL" name="sys_dictionary" parent="sys_db_object" relationship="4344f6f5bf1320001875647fcf0739ad" sys_domain="global" view="Default view">8eb1fcd8ef423000a61d5a3615c0fb55</list_id>
-            <max_value>false</max_value>
-            <min_value>false</min_value>
-            <position>2</position>
-            <sum>false</sum>
-            <sys_created_by>admin</sys_created_by>
-            <sys_created_on>2012-11-27 20:54:45</sys_created_on>
-            <sys_id>0ab1fcd8ef423000a61d5a3615c0fb57</sys_id>
-            <sys_mod_count>0</sys_mod_count>
-            <sys_updated_by>admin</sys_updated_by>
-            <sys_updated_on>2012-11-27 20:54:45</sys_updated_on>
-        </sys_ui_list_element>
-        <sys_ui_list_element action="INSERT_OR_UPDATE">
-            <average_value>false</average_value>
-            <element>max_length</element>
-            <list_id display_value="sys_dictionary" element="NULL" name="sys_dictionary" parent="sys_db_object" relationship="4344f6f5bf1320001875647fcf0739ad" sys_domain="global" view="Default view">8eb1fcd8ef423000a61d5a3615c0fb55</list_id>
-            <max_value>false</max_value>
-            <min_value>false</min_value>
-            <position>3</position>
-            <sum>false</sum>
-            <sys_created_by>admin</sys_created_by>
-            <sys_created_on>2012-11-27 20:54:45</sys_created_on>
-            <sys_id>8ab1fcd8ef423000a61d5a3615c0fb57</sys_id>
-            <sys_mod_count>0</sys_mod_count>
-            <sys_updated_by>admin</sys_updated_by>
-            <sys_updated_on>2012-11-27 20:54:45</sys_updated_on>
-        </sys_ui_list_element>
-        <sys_ui_list_element action="INSERT_OR_UPDATE">
-            <average_value>false</average_value>
-            <element>default_value</element>
-            <list_id display_value="sys_dictionary" element="NULL" name="sys_dictionary" parent="sys_db_object" relationship="4344f6f5bf1320001875647fcf0739ad" sys_domain="global" view="Default view">8eb1fcd8ef423000a61d5a3615c0fb55</list_id>
-            <max_value>false</max_value>
-            <min_value>false</min_value>
-            <position>4</position>
-            <sum>false</sum>
-            <sys_created_by>admin</sys_created_by>
-            <sys_created_on>2012-11-27 20:54:45</sys_created_on>
-            <sys_id>0eb1fcd8ef423000a61d5a3615c0fb57</sys_id>
-            <sys_mod_count>0</sys_mod_count>
-            <sys_updated_by>admin</sys_updated_by>
-            <sys_updated_on>2012-11-27 20:54:45</sys_updated_on>
-        </sys_ui_list_element>
-        <sys_ui_list_element action="INSERT_OR_UPDATE">
-            <average_value>false</average_value>
-            <element>display</element>
-            <list_id display_value="sys_dictionary" element="NULL" name="sys_dictionary" parent="sys_db_object" relationship="4344f6f5bf1320001875647fcf0739ad" sys_domain="global" view="Default view">8eb1fcd8ef423000a61d5a3615c0fb55</list_id>
-            <max_value>false</max_value>
-            <min_value>false</min_value>
-            <position>5</position>
-            <sum>false</sum>
-            <sys_created_by>admin</sys_created_by>
-            <sys_created_on>2012-11-27 20:54:45</sys_created_on>
-            <sys_id>8eb1fcd8ef423000a61d5a3615c0fb57</sys_id>
-            <sys_mod_count>0</sys_mod_count>
-            <sys_updated_by>admin</sys_updated_by>
-            <sys_updated_on>2012-11-27 20:54:45</sys_updated_on>
-        </sys_ui_list_element>
         <sys_ui_list action="INSERT_OR_UPDATE">
             <average_value>false</average_value>
             <element/>
@@ -109,12 +19,12 @@
             <sys_domain_path>/</sys_domain_path>
             <sys_id>61d9a0064f32130069b8c3818110c7cc</sys_id>
             <sys_mod_count>1</sys_mod_count>
-            <sys_name/>
-            <sys_package/>
+            <sys_name>sys_dictionary</sys_name>
+            <sys_package display_value="Conditional Portal Redirection" source="x_17973_conditiona">a8bee2414f32130069b8c3818110c752</sys_package>
             <sys_policy/>
             <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
             <sys_scope display_value="Conditional Portal Redirection">a8bee2414f32130069b8c3818110c752</sys_scope>
-            <sys_update_name/>
+            <sys_update_name>sys_ui_list_sys_db_object_4344f6f5bf1320001875647fcf0739ad_null</sys_update_name>
             <sys_updated_by>admin</sys_updated_by>
             <sys_updated_on>2018-06-21 02:26:10</sys_updated_on>
             <sys_user display_value="System Administrator">6816f79cc0a8016401c5a33be04be441</sys_user>

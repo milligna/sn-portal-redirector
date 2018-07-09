@@ -129,7 +129,7 @@ PRRPortalRuleUtils.prototype = Object.extendsObject(global.AbstractAjaxProcessor
         <sys_class_name>sys_script_include</sys_class_name>
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2018-06-19 23:25:55</sys_created_on>
-        <sys_customer_update>true</sys_customer_update>
+        <sys_customer_update>false</sys_customer_update>
         <sys_id>dadc976d4ffe130069b8c3818110c769</sys_id>
         <sys_mod_count>19</sys_mod_count>
         <sys_name>PRRPortalRuleUtils</sys_name>

@@ -52,17 +52,17 @@
         <sys_class_name>sys_dictionary</sys_class_name>
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2018-06-19 02:13:24</sys_created_on>
-        <sys_customer_update>true</sys_customer_update>
-        <sys_id>146cb65d4ff6130069b8c3818110c7d4</sys_id>
-        <sys_mod_count>4</sys_mod_count>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>53ea99f3db03130041845421cf9619f9</sys_id>
+        <sys_mod_count>0</sys_mod_count>
         <sys_name>User Field Name (select the User field for this rule type)</sys_name>
         <sys_package display_value="Conditional Portal Redirection" source="x_17973_conditiona">a8bee2414f32130069b8c3818110c752</sys_package>
         <sys_policy/>
         <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
         <sys_scope display_value="Conditional Portal Redirection">a8bee2414f32130069b8c3818110c752</sys_scope>
         <sys_update_name>sys_dictionary_x_17973_conditiona_portal_redirection_rule_user_field_name</sys_update_name>
-        <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2018-06-19 02:42:41</sys_updated_on>
+        <sys_updated_by>system</sys_updated_by>
+        <sys_updated_on>2018-07-08 23:47:54</sys_updated_on>
         <table_reference>false</table_reference>
         <text_index>false</text_index>
         <unique>false</unique>

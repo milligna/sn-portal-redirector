@@ -7,7 +7,7 @@
         <sys_class_name>sys_scope_privilege</sys_class_name>
         <sys_created_by>guest</sys_created_by>
         <sys_created_on>2018-06-21 00:03:51</sys_created_on>
-        <sys_customer_update>true</sys_customer_update>
+        <sys_customer_update>false</sys_customer_update>
         <sys_id>d2f1f88a4f32130069b8c3818110c75a</sys_id>
         <sys_mod_count>0</sys_mod_count>
         <sys_name>sys_user_has_role</sys_name>

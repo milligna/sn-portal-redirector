@@ -12,7 +12,7 @@
             <sys_class_name>sys_documentation</sys_class_name>
             <sys_created_by>admin</sys_created_by>
             <sys_created_on>2018-06-18 06:38:56</sys_created_on>
-            <sys_customer_update>true</sys_customer_update>
+            <sys_customer_update>false</sys_customer_update>
             <sys_id>dcaf2e054f32130069b8c3818110c778</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_name>Portal Redirection Rule</sys_name>

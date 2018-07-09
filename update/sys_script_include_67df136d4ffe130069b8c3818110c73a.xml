@@ -3,32 +3,39 @@
     <sys_script_include action="INSERT_OR_UPDATE">
         <access>public</access>
         <active>false</active>
-        <api_name>x_17973_conditiona.PRRSPEntryPageScoped</api_name>
+        <api_name>x_17973_conditiona.PRRSPEntryPageSample</api_name>
         <client_callable>true</client_callable>
-        <description>NOTE: This script has deprecated for use within the Scoped application - this version can't be used due to issues with scoping of the gs.getSession().getProperty() method (getProperty is not available to Scoped Applications).  The Script content can however be co-opted and created as a Globally scoped Script Include (ensuring that a Global Scope version has a distinct name and the appropriate updates are made to the the script content and the 2 Glide Entry Properties), or you can install the comanion XML file containing a Global version of the script include that should be distributed with this app.&#13;
+        <description>NOTE: This script has deprecated for use within the Scoped application - this version can't be used due to issues with scoping of the gs.getSession().getProperty() method (getProperty is not available to Scoped Applications).  The Script content can however be co-opted and created as a Globally scoped Script Include (ensuring that a Global Scope version has a distinct name and the appropriate updates are made to the the script content and the 2 Glide Entry Properties).&#13;
 &#13;
 This is a custom version of the SPEntryPage Script include that uses the Conditional Portal Redirect Application's PRRPortalRuleUtils function to identify which Service Portal a user's session should be set to.  Do not use this EntryPage script include unless you have Portal Redirection Rule records configured.&#13;
 &#13;
 </description>
-        <name>PRRSPEntryPageScoped</name>
+        <name>PRRSPEntryPageSample</name>
         <script><![CDATA[/** 
  *
- *  Service Portal sample script include to indicate 
+ * NOTE: PLEASE DO NOT USE THIS SCRIPT TO REPLACE SPENTRYPAGE AS-IS! 
+ * There are methods in this script which will not work in a Scoped App.
+ * Instead, please make a global scope version of this script
+ * (I've used "PRRSPEntryPage") and use it to replace the glide.entry.page.script
+ * and glide.entry.first.page.script system property values.  
+ * Don't forget to make the property value match your script name.
+ *
+ *  Service Portal replacement script include to indicate 
  *  1. which login page should be used
  *  2. the starting page after the user is authenticated 
  * 
  *  Script is configured using system properties
  
  *  PROPERTY                        VALUE
- *  glide.entry.page.script         new PRRSPEntryPageScoped().getLoginURL(); 
- *  glide.entry.first.page.script   new PRRSPEntryPageScoped().getFirstPageURL();
+ *  glide.entry.page.script         new PRRSPEntryPage().getLoginURL(); 
+ *  glide.entry.first.page.script   new PRRSPEntryPage().getFirstPageURL();
  * 
  * functions can return a path or null if no overrides are necessary
  * 
  **/
-var PRRSPEntryPageScoped = Class.create();
+var PRRSPEntryPage = Class.create();
 
-PRRSPEntryPageScoped.prototype = {
+PRRSPEntryPage.prototype = {
 	
 	initialize: function() {
 		var returnedPortal = new x_17973_conditiona.PRRPortalRuleUtils();
@@ -47,6 +54,7 @@ PRRSPEntryPageScoped.prototype = {
 		// When requesting a page directly (eg: /problem_list.do)
 		// The platform session_timeout.do sets the login page to welcome.do
 		// Since we are handling the login, clear that value
+		//gs.log("getLoginURL started for"+gs.getUserName());     // DEBUGGING LOOP
 		var session = gs.getSession();
 		var nt = session.getProperty("nav_to");
 		var sPage = session.getProperty("starting_page");
@@ -61,8 +69,9 @@ PRRSPEntryPageScoped.prototype = {
 		portalGR.addQuery("url_suffix", this.defaultPortal.replace(/\//g, ""));
 		portalGR.addNotNullQuery("login_page");
 		portalGR.query();
-		if (portalGR.next())
+		if (portalGR.next())  // DEBUG THIS QUERY!!!
 			return this.defaultPortal + "?id=" + portalGR.login_page.id;
+		//gs.log("Returned Login URL for "+gs.getUserName()+" is: "+this.defaultPortal + "?id=" + portalGR.login_page.id); // DEBUGGING LOOP
 
 		// Send to the a default login page
 		return this.defaultPortal + "?id=login";
@@ -83,7 +92,7 @@ PRRSPEntryPageScoped.prototype = {
 		var isServicePortalURL = new GlideSPScriptable().isServicePortalURL(nt);
 		var redirectURL = session.getProperty("login_redirect");
 		gs.log("PRR USER: "+gs.getUserName()+" TYPE: "+returnedPortal.getRedirectType() +" RULE: "+returnedPortal.getRedirectRule().name);
-		if (returnedPortal.getRedirectType() == "platform_ui"  && !redirectURL && !isServicePortalURL)
+		if (returnedPortal.getRedirectType() == "platform_ui" && !redirectURL && !isServicePortalURL)
 			return;
 
 		// user may have logged in from a frame, the /login_redirect.do page will bust out of it
@@ -99,14 +108,22 @@ PRRSPEntryPageScoped.prototype = {
 			if (nt) {
 				if (ep == nt)
 					nt = null;
+				gs.log('PRR USER: '+gs.getUserName()+' AVOIDED REDIRECT LOOP');
 			}
 			 // PRB726860: if page is still welcome.do, go to glide.login.home preserving frameset
-			if (nt == "welcome.do") {
+			if (nt == "welcome.do" && returnedPortal.getRedirectType() == "platform_ui") {   
 				session.putProperty("nav_to", ep);
+				gs.log('PRR USER: '+gs.getUserName()+' INJECTED GLIDE.LOGIN.HOME: '+ep);
 				return;
+			}
+			// Forces a "welcome.do" where the redirect rule enforces a portal to re-enter the cycle with no Navto
+			if (nt == "welcome.do" && returnedPortal.getRedirectType() == "portal") {  
+				nt = null;
+				gs.log('PRR USER: '+gs.getUserName()+' Portal user Redirect - wipe nav_to for redirect cycle');
 			}
 			
 			session.putProperty("login_redirect", nt || "true");
+			gs.log('PRR USER: '+gs.getUserName()+' LOGIN REDIRECT FALSE: /login_redirect.do?sysparm_stack=no');
 			return "/login_redirect.do?sysparm_stack=no";
 		}
 
@@ -115,6 +132,7 @@ PRRSPEntryPageScoped.prototype = {
 		if (redirectURL && redirectURL != "true") {
 			var spUrl = new GlideSPScriptable().mapUrlToSPUrl(redirectURL);
 			returnUrl = spUrl ? this.portal + "?" + spUrl : redirectURL;
+			gs.log('PRR USER: '+gs.getUserName()+' LOGIN REDIRECT TRUE: '+returnUrl);
 		}
 
 		this.logProperties('after', session);
@@ -133,27 +151,27 @@ PRRSPEntryPageScoped.prototype = {
 			return; 
 		
 		gs.log('SPEntryPage: Redirect ------------------------------- ' + beforeOrAfter);
-		gs.log('session.starting_page: ' + session.getProperty("starting_page"));
-		gs.log('session.nav_to: ' + session.getProperty("nav_to"));
-		gs.log('session.login_redirect: ' + session.getProperty("login_redirect"));
-		gs.log('gs.fURI: ' + session.getURI());
+		gs.log(beforeOrAfter + ' -------------------------------  session.starting_page: ' + session.getProperty("starting_page"));
+		gs.log(beforeOrAfter + ' -------------------------------  session.nav_to: ' + session.getProperty("nav_to"));
+		gs.log(beforeOrAfter + ' -------------------------------  session.login_redirect: ' + session.getProperty("login_redirect"));
+		gs.log(beforeOrAfter + ' -------------------------------  gs.fURI: ' + session.getURI());
 	},
 	
-	type: 'PRRSPEntryPageScoped'
+	type: 'PRRSPEntryPage'
 };]]></script>
         <sys_class_name>sys_script_include</sys_class_name>
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2018-06-19 23:29:34</sys_created_on>
         <sys_customer_update>true</sys_customer_update>
         <sys_id>67df136d4ffe130069b8c3818110c73a</sys_id>
-        <sys_mod_count>15</sys_mod_count>
-        <sys_name>PRRSPEntryPageScoped</sys_name>
+        <sys_mod_count>18</sys_mod_count>
+        <sys_name>PRRSPEntryPageSample</sys_name>
         <sys_package display_value="Conditional Portal Redirection" source="x_17973_conditiona">a8bee2414f32130069b8c3818110c752</sys_package>
         <sys_policy/>
         <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
         <sys_scope display_value="Conditional Portal Redirection">a8bee2414f32130069b8c3818110c752</sys_scope>
         <sys_update_name>sys_script_include_67df136d4ffe130069b8c3818110c73a</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2018-06-21 03:15:27</sys_updated_on>
+        <sys_updated_on>2018-07-08 23:58:09</sys_updated_on>
     </sys_script_include>
 </record_update>

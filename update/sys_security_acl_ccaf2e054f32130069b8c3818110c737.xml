@@ -12,7 +12,7 @@
         <sys_class_name>sys_security_acl</sys_class_name>
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2018-06-18 06:38:55</sys_created_on>
-        <sys_customer_update>true</sys_customer_update>
+        <sys_customer_update>false</sys_customer_update>
         <sys_id>ccaf2e054f32130069b8c3818110c737</sys_id>
         <sys_mod_count>0</sys_mod_count>
         <sys_name>x_17973_conditiona_portal_redirection_rule</sys_name>

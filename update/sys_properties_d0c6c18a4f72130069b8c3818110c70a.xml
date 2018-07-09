@@ -12,7 +12,7 @@
         <sys_class_name>sys_properties</sys_class_name>
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2018-06-21 01:46:00</sys_created_on>
-        <sys_customer_update>true</sys_customer_update>
+        <sys_customer_update>false</sys_customer_update>
         <sys_id>d0c6c18a4f72130069b8c3818110c70a</sys_id>
         <sys_mod_count>0</sys_mod_count>
         <sys_name>x_17973_conditiona.default_login_portal</sys_name>
